@@ -28,7 +28,7 @@ export default function Home() {
     <main className="min-h-screen bg-black">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <div className="max-w-2xl mx-auto px-4 py-12 sm:py-20">
         <header className="text-center mb-10">

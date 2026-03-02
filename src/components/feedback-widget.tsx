@@ -50,6 +50,7 @@ export function FeedbackWidget() {
                 <span className="text-sm text-white/70">フィードバック</span>
                 <button
                   onClick={() => setOpen(false)}
+                  aria-label="閉じる"
                   className="text-white/30 hover:text-white/60 text-lg leading-none cursor-pointer transition-all duration-200"
                 >
                   &times;
@@ -60,6 +61,7 @@ export function FeedbackWidget() {
                   <button
                     key={n}
                     onClick={() => setRating(n)}
+                    aria-label={`${n}点`}
                     className={`w-9 h-9 rounded cursor-pointer transition-all duration-200 text-sm ${
                       n <= rating
                         ? "bg-[#10b981] text-black"
@@ -92,7 +94,7 @@ export function FeedbackWidget() {
           onClick={() => setOpen(true)}
           className="bg-white/5 border border-white/10 hover:bg-white/10 text-white/50 hover:text-white/70 rounded-full px-4 py-2 text-sm cursor-pointer transition-all duration-200"
         >
-          Feedback
+          ご意見
         </button>
       )}
     </div>

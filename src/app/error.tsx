@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Error({
   reset,
 }: {
@@ -22,12 +24,12 @@ export default function Error({
           >
             再試行
           </button>
-          <a
+          <Link
             href="/"
             className="inline-block px-6 py-3 border border-white/10 text-white font-semibold rounded-md hover:bg-white/5 transition-all duration-200 cursor-pointer"
           >
             トップページに戻る
-          </a>
+          </Link>
         </div>
       </div>
     </main>
