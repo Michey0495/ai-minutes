@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { kv } from "@vercel/kv";
+import { nanoid } from "nanoid";
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +14,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const id = nanoid(10);
     const feedback = {
+      id,
       rating,
       message: message || "",
       page: page || "/",
@@ -21,6 +25,12 @@ export async function POST(request: NextRequest) {
     };
 
     console.log("[Feedback]", JSON.stringify(feedback));
+
+    if (process.env.KV_REST_API_URL) {
+      await kv.set(`feedback:${id}`, feedback, { ex: 60 * 60 * 24 * 90 });
+      await kv.lpush("feedback:list", id);
+      await kv.ltrim("feedback:list", 0, 199);
+    }
 
     return NextResponse.json({ success: true });
   } catch {

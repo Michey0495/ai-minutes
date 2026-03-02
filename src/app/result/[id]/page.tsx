@@ -54,8 +54,29 @@ export default async function ResultPage({ params }: Props) {
     notFound();
   }
 
+  const resultSiteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://minutes.ezoai.jp";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: result.input.title || "議事録",
+    description: result.summary.slice(0, 200),
+    datePublished: result.createdAt,
+    url: `${resultSiteUrl}/result/${id}`,
+    publisher: {
+      "@type": "Organization",
+      name: "AI議事録",
+      url: resultSiteUrl,
+    },
+  };
+
   return (
     <main className="min-h-screen bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-2xl mx-auto px-4 py-12 sm:py-20">
         <header className="text-center mb-10">
           <a href="/">

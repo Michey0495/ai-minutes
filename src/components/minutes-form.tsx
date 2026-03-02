@@ -123,8 +123,24 @@ export function MinutesForm() {
         disabled={loading}
         className="w-full cursor-pointer bg-[#10b981] hover:bg-[#059669] text-black font-semibold py-3 transition-all duration-200 disabled:opacity-50"
       >
-        {loading ? "生成中..." : "議事録を生成する"}
+        {loading ? (
+          <span className="flex items-center justify-center gap-2">
+            <span className="inline-block h-4 w-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+            AIが議事録を生成しています...
+          </span>
+        ) : (
+          "議事録を生成する"
+        )}
       </Button>
+
+      {loading && (
+        <div className="space-y-3 animate-pulse">
+          <div className="h-3 bg-white/5 rounded w-3/4" />
+          <div className="h-3 bg-white/5 rounded w-full" />
+          <div className="h-3 bg-white/5 rounded w-5/6" />
+          <div className="h-3 bg-white/5 rounded w-2/3" />
+        </div>
+      )}
     </Card>
   );
 }

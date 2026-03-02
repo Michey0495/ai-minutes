@@ -89,12 +89,20 @@ Vercel にデプロイ。環境変数を Vercel Dashboard で設定。
 - フィードバックウィジェット
 - Google Analytics 対応（`NEXT_PUBLIC_GA_ID`）
 
+### Night 3
+- フィードバック永続化（Vercel KV保存、90日TTL、最新200件管理）
+- JSON-LD構造化データ（トップページ: WebApplication、結果ページ: Article）
+- エラーページ改善（404 not-found.tsx、error.tsx エラーバウンダリ）
+- ローディングアニメーション改善（スピナー + スケルトンUI）
+- 結果ページにloading.tsx（Suspense対応スケルトン）
+- パフォーマンス最適化（viewport設定、poweredByHeader無効化、compress有効化）
+- サイトマップ自動生成（`/sitemap.xml`）
+- robots.txt にAIクローラー（GPTBot, Claude-Web, anthropic-ai）明示追加
+
 ### 次回やるべきこと
-- Vercel KV を使ったフィードバック永続化
-- 構造化データ（JSON-LD）
-- エラーページの改善
-- ローディングアニメーション改善
-- パフォーマンス最適化
+- Vercel にデプロイして動作確認
+- OGP画像の改善（フォントの日本語対応確認）
+- アクセシビリティ改善（aria属性の追加）
 
 ## ライセンス
 
