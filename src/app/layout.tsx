@@ -26,23 +26,50 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AI議事録 - 会議メモからプロの議事録を自動生成",
+  title: {
+    default: "AI議事録 - 会議メモを貼るだけで議事録を自動生成 | 無料・登録不要",
+    template: "%s | AI議事録",
+  },
   description:
-    "会議のメモや発言ログを入力するだけで、AIが構造化された議事録を自動生成。要約・決定事項・アクションアイテムを整理します。",
+    "会議のメモや発言ログを貼り付けるだけで、AIが要約・決定事項・アクションアイテム・ネクストステップを自動整理。無料・登録不要・5秒で完成。",
+  keywords: [
+    "AI議事録",
+    "議事録 自動生成",
+    "会議メモ AI",
+    "議事録作成ツール",
+    "会議 要約",
+    "アクションアイテム 自動抽出",
+    "AI meeting minutes",
+    "meeting notes generator",
+  ],
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "AI議事録 - 会議メモからプロの議事録を自動生成",
+    title: "AI議事録 - 会議メモを貼るだけ。5秒で議事録完成。",
     description:
-      "会議のメモや発言ログを入力するだけで、AIが構造化された議事録を自動生成。",
+      "要約・決定事項・TODO・ネクストアクションを自動整理。無料・登録不要。",
     url: siteUrl,
     siteName: "AI議事録",
     type: "website",
+    locale: "ja_JP",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI議事録 - 会議メモからプロの議事録を自動生成",
+    title: "AI議事録 - 会議メモを貼るだけ。5秒で議事録完成。",
     description:
-      "会議のメモや発言ログを入力するだけで、AIが構造化された議事録を自動生成。",
+      "要約・決定事項・TODO・ネクストアクションを自動整理。無料・登録不要。",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
   },
 };
 
