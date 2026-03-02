@@ -67,6 +67,35 @@ npm run dev
 
 Vercel にデプロイ。環境変数を Vercel Dashboard で設定。
 
+## 環境変数（追加）
+
+| 変数名 | 説明 | 必須 |
+|--------|------|------|
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 測定 ID | No |
+
+## 進捗
+
+### Night 1 (初回)
+- プロジェクト初期構築（Next.js 16, Tailwind v4, shadcn/ui）
+- 議事録生成API（Claude Haiku 4.5）
+- フォームUI / 結果表示コンポーネント
+- 結果共有ページ（OGP画像付き）
+- MCP Server API
+- AI公開チャネル（llms.txt, agent.json, robots.txt）
+- レート制限
+
+### Night 2
+- フィードバックAPI（`/api/feedback`）
+- フィードバックウィジェット
+- Google Analytics 対応（`NEXT_PUBLIC_GA_ID`）
+
+### 次回やるべきこと
+- Vercel KV を使ったフィードバック永続化
+- 構造化データ（JSON-LD）
+- エラーページの改善
+- ローディングアニメーション改善
+- パフォーマンス最適化
+
 ## ライセンス
 
 Private
